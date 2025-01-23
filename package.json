@@ -1,0 +1,32 @@
+{
+  "name": "nutechintegrasitht",
+  "version": "1.0.0",
+  "description": "Take Home Test for PT. Nutech Integrasi by Alexander Briyan",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexanderbry/NutechIntegrasiTHT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/alexanderbry/NutechIntegrasiTHT/issues"
+  },
+  "homepage": "https://github.com/alexanderbry/NutechIntegrasiTHT#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.1",
+    "sequelize": "^6.37.5"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "sequelize-cli": "^6.6.2"
+  }
+}
