@@ -8,19 +8,19 @@ module.exports = (sequelize, DataTypes) => {
   }
   Services.init(
     {
-      service: {
+      service_code: {
         type: DataTypes.STRING,
         unique: {
           arg: true,
-          msg: "Nama sudah digunakan",
+          msg: "Nama service sudah digunakan",
         },
         allowNull: false,
         validate: {
           notNull: {
-            msg: "Parameter service wajib diisi",
+            msg: "Parameter service_code wajib diisi",
           },
           notEmpty: {
-            msg: "Parameter service wajib diisi",
+            msg: "Parameter service_code wajib diisi",
           },
         },
       },
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         unique: {
           arg: true,
-          msg: "Nama sudah digunakan",
+          msg: "Nama service sudah digunakan",
         },
         allowNull: false,
         validate: {
