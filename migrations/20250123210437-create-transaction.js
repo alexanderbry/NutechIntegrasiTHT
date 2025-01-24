@@ -2,30 +2,36 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Profiles', {
+    await queryInterface.createTable('Transactions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      first_name: {
+      invoice_number: {
+        type: Sequelize.STRING,
+        unique: true
+      },
+      transaction_type: {
         type: Sequelize.STRING
       },
-      last_name: {
-        type: Sequelize.STRING
-      },
-      profile_image: {
-        type: Sequelize.STRING
-      },
-      balance: {
+      total_amount: {
         type: Sequelize.INTEGER
       },
-      UserId: {
-        type: Sequelize.INTEGER
+      ServicesId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Services',
+          key: 'id'
+        }
       },
-      TransactionHistoryId: {
-        type: Sequelize.INTEGER
+      ProfileId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Profiles',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -38,6 +44,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Profiles');
+    await queryInterface.dropTable('Transactions');
   }
 };

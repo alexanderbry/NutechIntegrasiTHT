@@ -4,9 +4,8 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Profile extends Model {
     static associate(models) {
-      Profile.hasOne(models.Transaction);
+      Profile.hasMany(models.Transaction);
       Profile.belongsTo(models.User);
-      Profile.belongsTo(models.TransactionHistory);
     }
   }
   Profile.init(
@@ -44,7 +43,6 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: 0,
       },
       UserId: DataTypes.INTEGER,
-      TransactionHistoryId: DataTypes.INTEGER,
     },
     {
       sequelize,
