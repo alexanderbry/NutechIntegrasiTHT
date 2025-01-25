@@ -1,5 +1,5 @@
 "use strict";
-const profile_image = require("../helpers/profile_image");
+
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Profile extends Model {
@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       profile_image: {
         type: DataTypes.STRING,
-        defaultValue: profile_image,
+        defaultValue: "../assets/profile_image.jpg",
       },
       balance: {
         type: DataTypes.INTEGER,

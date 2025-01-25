@@ -1,14 +1,15 @@
-import express, { Express } from "express";
-import dotenv from "dotenv";
-import { router } from "./routes";
+const express = require("express");
+const dotenv = require("dotenv");
+const router = require("./routes");
 
 dotenv.config();
 
-const app: Express = express();
+const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 app.use(router);
 
 app.listen(port, () => {
