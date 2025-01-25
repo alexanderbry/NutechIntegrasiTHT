@@ -50,7 +50,7 @@ class membershipController {
       const payload = { email: value.email, password: value.password };
 
       const loggedIn = await membershipService.login(payload);
-
+      if (loggedIn.error) throw loggedIn.error;
       res.status(200).json({
         status: loggedIn.status,
         message: loggedIn.message,
@@ -66,8 +66,9 @@ class membershipController {
       const { id } = req.user;
       const payload = id;
 
-      const loggedIn = await membershipService.login(payload);
-
+      const loggedIn = await membershipService.getProfile(payload);
+      if (loggedIn.error) throw loggedIn.error;
+      
       res.status(200).json({
         status: loggedIn.status,
         message: loggedIn.message,

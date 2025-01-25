@@ -1,19 +1,24 @@
 const { createToken } = require("../helpers/jwt");
 const { comparePassword } = require("../helpers/bcrypt");
-const User = require("../models").User;
+const { User, Profile } = require("../models");
+const { log } = require("console");
 
 class membershipService {
   static async register(payload) {
     try {
       const { email, first_name, last_name, password } = payload;
-      
-      const response = await User.create({
+
+      const newUser = await User.create({
         email,
-        first_name,
-        last_name,
         password,
       });
-  
+
+      await Profile.create({
+        first_name,
+        last_name,
+        UserId: newUser.id,
+      });
+
       return {
         status: 0,
         message: "Registrasi berhasil silahkan login",
@@ -21,7 +26,7 @@ class membershipService {
       };
     } catch (error) {
       return {
-        error
+        error,
       };
     }
   }
@@ -32,20 +37,18 @@ class membershipService {
 
       if (!email) throw { name: "EmailRequired" };
       if (!password) throw { name: "PasswordRequired" };
-      
+
       const isValidUser = await User.findOne({ where: { email } });
       if (!isValidUser) throw { name: "InvalidEmail/Password" };
-      
+
       const isValidPassword = comparePassword(password, isValidUser.password);
       if (!isValidPassword) throw { name: "InvalidEmail/Password" };
 
       const jwtPayload = {
         id: isValidUser.id,
       };
-      
+
       const access_token = createToken(jwtPayload);
-      console.log(access_token, "ini token di service");
-      
 
       return {
         status: 0,
@@ -54,25 +57,40 @@ class membershipService {
       };
     } catch (error) {
       return {
-        error
+        error,
       };
     }
   }
 
   static async getProfile(payload) {
     try {
-      const { id } = payload;
+      const UserId = payload;
 
-      const user = await User.findByPk(id);
-      if (!user) throw { name: "Not Found" };
+      const profile = await Profile.findOne({
+        where: { UserId },
+        attributes: { exclude: ['id', 'createdAt', 'updatedAt', 'balance', 'UserId'] },
+      });
 
+      const user = await User.findOne({
+        where: { id: UserId },
+        attributes: ['email']
+      });
+      
+      if (!profile) throw { name: "Not Found" };
+
+      const data = {
+        email: user.email,
+        ...profile.dataValues
+      }
       return {
         status: 0,
-        message: "Login Sukses",
-        data: { token: access_token },
+        message: "Sukses",
+        data,
       };
     } catch (error) {
-      // next(error);
+      return {
+        error,
+      };
     }
   }
 }

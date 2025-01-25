@@ -13,8 +13,8 @@ const errorHandler = (err, req, res, next) => {
       break;
     case "JsonWebTokenError":
       statusCode = 401;
-      status = 0;
-      message = "You need to login first";
+      status = 108;
+      message = "Token tidak tidak valid atau kadaluwarsa";
       break;
     case "lastNameRequired":
       statusCode = 400;
@@ -23,7 +23,7 @@ const errorHandler = (err, req, res, next) => {
       break;
     case "InvalidEmail/Password":
       statusCode = 401;
-      status = 0;
+      status = 103;
       message = "Email atau password salah";
       break;
     case "Not Found":

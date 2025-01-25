@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       profile_image: {
         type: DataTypes.STRING,
-        defaultValue: "../assets/profile_image.jpg",
+        defaultValue: "https://yoururlapi.com/profile.jpeg",
       },
       balance: {
         type: DataTypes.INTEGER,

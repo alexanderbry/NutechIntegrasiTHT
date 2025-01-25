@@ -15,8 +15,6 @@ router.post("/login", membershipController.login);
 // Private API
 router.use(authentication);
 
-router.get("/profile", membershipController.getProfile);
-
 router.use("/profile", profileRouters);
 router.use("/transaction", transactionRouters);
 
