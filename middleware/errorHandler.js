@@ -16,10 +16,15 @@ const errorHandler = (err, req, res, next) => {
       status = 108;
       message = "Token tidak tidak valid atau kadaluwarsa";
       break;
-    case "lastNameRequired":
+    case "FileRequired":
       statusCode = 400;
       status = 0;
-      message = "Parameter last_name tidak boleh kosong";
+      message = "Parameter profile_image tidak boleh kosong";
+      break;
+    case "InvalidType":
+      statusCode = 401;
+      status = 103;
+      message = "Format Image tidak sesuai";
       break;
     case "InvalidEmail/Password":
       statusCode = 401;
