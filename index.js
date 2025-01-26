@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const router = require("./routes");
+const router = require("./src/routes");
+const errorHandler = require("./src/middleware/errorHandler");
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(router);
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);

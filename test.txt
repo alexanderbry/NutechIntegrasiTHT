@@ -1,6 +1,0 @@
-npx sequelize model:generate --name User --attributes email:string,password:string
-npx sequelize model:generate --name Profile --attributes first_name:string,last_name:string,profile_image:string,balance:integer,UserId:integer,TransactionHistoryId:integer
-npx sequelize model:generate --name Transaction --attributes invoice_number:string,transaction_type:string,total_amount:string,ServicesId:integer,ProfileId:integer
-npx sequelize model:generate --name TransactionHistory --attributes TransactionId:integer
-npx sequelize model:generate --name Services --attributes service:string,service_name:string,service_icon:string,service_tariff:integer
-npx sequelize model:generate --name Banner --attributes banner_name:string,banner_image:string,description:string

@@ -11,6 +11,7 @@ const errorHandler = (err, req, res, next) => {
       status = 0;
       message = err.errors[0].message;
       break;
+    case "TokenExpiredError":
     case "JsonWebTokenError":
       statusCode = 401;
       status = 108;

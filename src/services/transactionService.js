@@ -1,5 +1,5 @@
 const { where } = require("sequelize");
-const { Profile, Transaction, Services } = require("../models");
+const { Profile, Transaction, Services } = require("../../models");
 
 class transactionService {
   static async getBalance(payload) {

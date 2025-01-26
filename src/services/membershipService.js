@@ -1,6 +1,6 @@
 const { createToken } = require("../helpers/jwt");
 const { comparePassword } = require("../helpers/bcrypt");
-const { User, Profile } = require("../models");
+const { User, Profile } = require("../../models");
 const extensionsChecker = require("../helpers/extensionsChecker");
 const { handleUpload } = require("../helpers/cloudinary");
 

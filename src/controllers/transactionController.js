@@ -1,4 +1,8 @@
-const { topupSchema, paymentSchema, getTransactionHistorySchema } = require("../schemas/transactionSchema");
+const {
+  topupSchema,
+  paymentSchema,
+  getTransactionHistorySchema,
+} = require("../schemas/transactionSchema");
 const transactionService = require("../services/transactionService");
 
 class transactionController {

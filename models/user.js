@@ -1,6 +1,6 @@
 "use strict";
 
-const { hashPassword } = require("../helpers/bcrypt");
+const { hashPassword } = require("../src/helpers/bcrypt");
 
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         unique: {
           arg: true,
-          msg: "Email sudah digunakan"
-      },
+          msg: "Email sudah digunakan",
+        },
         allowNull: false,
         validate: {
           notNull: {

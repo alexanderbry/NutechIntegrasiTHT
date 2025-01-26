@@ -1,4 +1,4 @@
-const { Banner, Services } = require("../models");
+const { Banner, Services } = require("../../models");
 
 class informationService {
   static async getAllBanner(payload) {
