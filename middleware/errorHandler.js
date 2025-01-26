@@ -31,6 +31,16 @@ const errorHandler = (err, req, res, next) => {
       status = 103;
       message = "Email atau password salah";
       break;
+    case "ServiceNotFound":
+      statusCode = 400;
+      status = 0;
+      message = "Service ataus Layanan tidak ditemukan";
+      break;
+    case "BalanceNotEnough":
+      statusCode = 400;
+      status = 0;
+      message = "Saldo anda tidak cukup, silahkan top up saldo anda";
+      break;
     case "Not Found":
       statusCode = 404;
       status = 0;
