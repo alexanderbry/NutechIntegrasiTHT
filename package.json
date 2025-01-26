@@ -4,7 +4,7 @@
   "description": "Take Home Test for PT. Nutech Integrasi by Alexander Briyan",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "repository": {
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/alexanderbry/NutechIntegrasiTHT#readme",
   "dependencies": {
+    "@railway/cli": "^3.20.2",
     "bcryptjs": "^2.4.3",
     "checkout": "^1.0.1",
     "cloudinary": "^2.5.1",
