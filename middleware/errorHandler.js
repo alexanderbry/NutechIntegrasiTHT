@@ -23,7 +23,7 @@ const errorHandler = (err, req, res, next) => {
       break;
     case "InvalidType":
       statusCode = 401;
-      status = 103;
+      status = 102;
       message = "Format Image tidak sesuai";
       break;
     case "InvalidEmail/Password":

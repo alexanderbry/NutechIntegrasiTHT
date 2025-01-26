@@ -21,6 +21,7 @@ module.exports = {
       },
       ServicesId: {
         type: Sequelize.INTEGER,
+        allowNull: true,
         references: {
           model: 'Services',
           key: 'id'

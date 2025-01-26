@@ -53,8 +53,22 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      ServicesId: DataTypes.INTEGER,
-      ProfileId: DataTypes.INTEGER,
+      ServicesId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'Services',
+          key: 'id'
+        }
+      },
+      ProfileId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Profiles',
+          key: 'id'
+        }
+      },
     },
     {
       sequelize,
