@@ -21,13 +21,16 @@
   "homepage": "https://github.com/alexanderbry/NutechIntegrasiTHT#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "checkout": "^1.0.1",
     "cloudinary": "^2.5.1",
     "express": "^4.21.2",
     "joi": "^17.13.3",
     "joi-image-extension": "^1.0.0",
     "jsonwebtoken": "^9.0.2",
+    "main": "^1000.0.1",
     "multer": "^1.4.5-lts.1",
     "pg": "^8.13.1",
+    "railway": "^2.0.17",
     "sequelize": "^6.37.5"
   },
   "devDependencies": {
